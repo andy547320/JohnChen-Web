@@ -1,0 +1,37 @@
+
+<!-- Search -->
+
+<!-- Categories --> 
+  <div class="navbar navbar-default" role="navigation">
+      <div class="container">
+        <div class="navbar-header">
+          <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+            <span class="sr-only">Toggle navigation</span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+          </button>
+        </div>
+        <div class="collapse navbar-collapse navbar-main-collapse">
+         
+          <ul class="nav navbar-nav">
+             {% for key, list in lists %}
+            <li class="dropdown">
+              <a data-toggle="dropdown" href="#{{ loop.index }}" class="dropdown-toggle">
+                {{ list }} <b class="caret"></b></a>
+         
+              <ul class="dropdown-menu">
+              {% for subs in list %}
+        <li ><a href="{{ url(base_url) }}/equip?{{ default_col }}={{ key|url_encode }}&{{ thirdth_col }}={{ subs|url_encode }}"> {{ subs }}</a> </li>
+        
+         {% endfor %} 
+              </ul>
+            </li>
+                {% endfor %} 
+          </ul>
+     
+        </div>
+      </div>
+    </div>
+ 
+

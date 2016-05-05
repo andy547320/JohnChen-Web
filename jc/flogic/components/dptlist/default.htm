@@ -1,0 +1,251 @@
+
+{% for key ,list in lists %}
+{{list[0]}}
+{{key[0]}}
+{list}
+{key}
+{% endfor %} 
+{% partial 'DptList::side_bar_tab.htm' %}
+<div class="container">
+    
+        <div class="col-lg-12">
+    
+           
+                 
+        <div class="row">
+        <div class="col-lg-10">
+                <h5>設備器具採購 {% for input in inputs %} - {{input}}  {% endfor %}  </h5>
+                 </div>
+     </div> 
+   {{menu}}
+  
+		 {% autoescape false %}
+        {{menu}}
+      <script>
+var datas =  {{menu}};
+	
+				var dtGridColumns = [
+  {
+    "id": "id",
+    "type": "number",
+    "title": "序號",
+    "columnClass": "text-left col-sm-1",
+    "fastQuery": "true",
+    "format": "#,###.",
+    "fastQueryType": "range",
+    "hide": true
+  },
+  {
+    "id": "type",
+    "type": "string",
+    "title": "系統類別",
+    "columnClass": "text-left col-sm-1",
+    "fastQuery": "true",
+    "format": "#,###.",
+    "fastQueryType": "eq",
+    "hide": true
+  },
+  {
+    "id": "tag",
+    "type": "string",
+    "title": "設備器具",
+    "columnClass": "text-left col-sm-1",
+    "fastQuery": "true",
+    "format": "#,###.",
+    "fastQueryType": "eq",
+    "hideType": "md|sm|xs",
+    "hide": true
+  },
+  {
+    "id": "simplied_specification",
+    "type": "string",
+    "title": "簡述規格",
+    "columnClass": "text-left col-sm-5",
+    "fastQuery": "true",
+    "format": "#,###.",
+    "fastQueryType": "eq",
+    "resolution": function(value, record, column, grid, dataNo, columnNo){var content = record.specification;return content.substr(0,32) ;}
+  },
+  {
+    "id": "project_id",
+    "type": "string",
+    "title": "專案代碼",
+    "columnClass": "text-left col-sm-1",
+    "fastQuery": "true",
+    "fastQueryType": "eq",
+    "hideType": "lg"
+  },
+  {
+    "id": "project_name",
+    "type": "string",
+    "title": "專案",
+    "columnClass": "text-left col-sm-1",
+    "fastQuery": "true",
+    "fastQueryType": "eq",
+    "hideType": "md|sm|xs"
+  },
+  {
+    "id": "resolved_id",
+    "type": "string",
+    "title": "購案編號",
+    "columnClass": "text-left",
+    "fastQuery": "true",
+    "format": "#,###.",
+    "fastQueryType": "eq",
+    "hideType": "lg"
+  },
+  {
+    "id": "resolve_date",
+    "type": "date",
+    "title": "完購日期",
+    "columnClass": "text-left col-sm-1",
+    "fastQuery": "true",
+    "format": "yyyy-MM-dd ",
+    "fastQueryType": "range",
+    "hideType": "lg",
+    "otype": "string",
+    "oformat": "yyyy-MM-dd"
+  },
+  {
+    "id": "unit",
+    "type": "string",
+    "title": "單位",
+    "columnClass": "text-center col-sm-1",
+    "fastQuery": "true",
+    "fastQueryType": "eq",
+    "hideType": "md|sm|xs",
+    "otype": "string"
+  },
+  {
+    "id": "quantum",
+    "type": "number",
+    "title": "數量",
+    "columnClass": "text-center col-sm-1",
+    "fastQuery": "true",
+    "format": "#,###.",
+    "fastQueryType": "range",
+    "hideType": "md|sm|xs",
+    "otype": "string",
+    "oformat": "yyyy-MM-dd"
+  },
+  {
+    "id": "quo_supplier",
+    "type": "string",
+    "title": "報價廠商",
+    "columnClass": "text-center col-sm-1",
+    "fastQuery": "true",
+    "format": "#,###.",
+    "fastQueryType": "eq",
+    "otype": "string",
+    "oformat": "yyyy-MM-dd"
+  },
+  {
+    "id": "initial_quo_price",
+    "type": "number",
+    "title": "報價單價",
+    "columnClass": "text-center text-bold col-sm-1",
+    "fastQuery": "true",
+    "format": "#,###.",
+    "fastQueryType": "range",
+    "otype": "string",
+    "oformat": "yyyy-MM-dd"
+	
+ 
+  },
+  {
+    "id": "last_quo_price",
+    "type": "number",
+    "title": "議決單價",
+    "columnClass": "text-center text-bold col-sm-1",
+    "fastQuery": "true",
+    "format": "#,###.",
+    "fastQueryType": "range"
+  },
+  {
+    "id": "resolved_price",
+    "type": "number",
+    "title": "執行總價",
+    "columnClass": "text-left col-sm-1",
+    "fastQuery": "true",
+    "hideType": "lg",
+    "format": "#,###.",
+    "fastQueryType": "range",
+    "otype": "string"
+  },
+  {
+    "id": "resolve_supplier",
+    "type": "string",
+    "title": "得標廠商",
+    "columnClass": "text-center col-sm-1",
+    "fastQuery": "true",
+    "format": "#,###.",
+    "fastQueryType": "eq",
+    "otype": "string",
+    "oformat": "yyyy-MM-dd"
+  },
+  {
+    "id": "extra_explanation",
+    "type": "string",
+    "title": "附屬品項",
+    "columnClass": "text-left",
+    "fastQuery": "true",
+    "format": "#,###.",
+    "fastQueryType": "eq",
+    "hideType": "lg",
+    "otype": "string",
+    "oformat": "yyyy-MM-dd"
+  },
+  {
+    "id": "project_explanation",
+    "type": "string",
+    "title": "其他備註",
+    "columnClass": "text-left",
+    "fastQuery": "true",
+    "format": "#,###.",
+    "fastQueryType": "eq",
+    "hideType": "lg",
+    "otype": "string",
+    "oformat": "yyyy-MM-dd"
+  },
+  {
+    "id": "specification",
+    "type": "string",
+    "title": "規格",
+    "columnClass": "text-left col-sm-2",
+    "fastQuery": "true",
+    "format": "#,###.",
+    "fastQueryType": "eq",
+    "hideType": "lg"
+  }
+];
+				{% endautoescape %}
+			 	var dtGridOption = {
+			 		lang : 'zh-tw',
+			 		ajaxLoad : false,
+			 		exportFileName : '輸出',
+			 		datas : datas,
+			 		columns : dtGridColumns,
+			 		gridContainer : 'dtGridContainer',
+					toolbarContainer : 'dtGridToolBarContainer',
+					tools : 'refresh',
+					pageSize : 10,
+					pageSizeLimit : [10, 20, 50],
+                    tableStyle : 'align-left table-layout="fixed"',
+					tableClass :  'table table-responsive',
+					check : true,
+
+                    
+                    
+			 	};
+			 	var grid = $.fn.DtGrid.init(dtGridOption);
+			 	$(function(){
+			 		grid.load();
+			 	});
+</script>
+<div id="dtGridContainer" class="dt-grid-container"></div>
+	<div id="dtGridToolBarContainer" class="dt-grid-toolbar-container"></div>
+	
+  
+</div>
+</div>
+
